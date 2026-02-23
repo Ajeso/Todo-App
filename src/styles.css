@@ -1,0 +1,118 @@
+:root {
+  --bg: #f5f2ed;
+  --sidebar-bg: #1c1917;
+  --sidebar-text: #e7e5e0;
+  --sidebar-muted: #78716c;
+  --sidebar-hover: #292524;
+  --accent: #d97757;
+  --accent-dark: #c26642;
+  --card: #ffffff;
+  --text: #1c1917;
+  --muted: #78716c;
+  --border: #e7e5e0;
+  --priority-high: #ef4444;
+  --priority-med: #f59e0b;
+  --priority-low: #22c55e;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+.sidebar {
+  width: 240px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  padding: 28px 22px 20px;
+  border-bottom: 1px solid #292524;
+}
+
+.sidebar-logo h1 {
+  font-family: "DM Serif Display", serif;
+  font-size: 22px;
+  color: var(--sidebar-text);
+  letter-spacing: -0.5px;
+}
+
+.sidebar-logo span {
+  color: var(--accent);
+}
+
+.sidebar-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sidebar-muted);
+  padding: 20px 22px 8px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  color: var(--sidebar-muted);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  border-left: 3px solid transparent;
+  transition: all 0.15s;
+}
+
+.sidebar-item:hover {
+  background: var(--sidebar-hover);
+  color: var(--sidebar-text);
+}
+
+.sidebar-item.active {
+  background: var(--sidebar-hover);
+  color: var(--sidebar-text);
+  border-left-color: var(--accent);
+}
+
+.sidebar-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sidebar-item .count {
+  margin-left: auto;
+  background: #292524;
+  color: var(--sidebar-muted);
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.sidebar-add-project {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  color: var(--sidebar-muted);
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.sidebar-add-project:hover {
+  color: var(--accent);
+}
