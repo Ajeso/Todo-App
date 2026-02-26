@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+    <!-- SIDEBAR  -->
     <div class="sidebar">
         <div class="sidebar-logo">
             <h1>Task <span>Flow</span></h1>
@@ -22,22 +22,10 @@
         <div class="sidebar-item"><span>⚡</span> Upcoming <span class="count">8</span></div>
 
         <div class="sidebar-section-label">Projects</div>
-
-        <div class="sidebar-item">
-            <span class="dot" style="background:#3B82F6"></span> Inbox <span class="count">3</span>
-        </div>
-        <div class="sidebar-item active">
-            <span class="dot" style="background:#D97757"></span> Work <span class="count">5</span>
-        </div>
-        <div class="sidebar-item">
-            <span class="dot" style="background:#22C55E"></span> Personal <span class="count">2</span>
-        </div>
-        <div class="sidebar-item">
-            <span class="dot" style="background:#A855F7"></span> Side Project <span class="count">2</span>
-        </div>
-
+        <div id="projectList"></div>
         <div class="sidebar-add-project">＋ Add Project</div>
     </div>
+    <!-- MAIN CONTENT -->
     <div class="main">
         <div class="topbar">
             <div class="topbar-left">
@@ -130,76 +118,54 @@
         </div>
     </div>
     <!-- DIALOG NEW TODO -->
-    <div class="dialog-backdrop" id="dialogBackdrop">
-        <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <dialog id="todoDialog">
 
-            <div class="dialog-header">
-                <h3 id="dialogTitle">New Todo</h3>
-                <div class="close-btn" id="closeDialog" title="Close">✕</div>
+        <div class="dialog-header">
+            <h3 id="dialogTitle">New Todo</h3>
+            <button class="close-btn" id="closeDialog" title="Close">✕</button>
+        </div>
+
+        <div class="dialog-body">
+
+            <div class="detail-field">
+                <label>Title</label>
+                <input type="text" id="todoTitle" placeholder="What needs to be done?" required />
+                <span class="error-msg" id="titleError">⚠️ Please add a title before saving.</span>
+
             </div>
 
-            <div class="dialog-body">
+            <div class="detail-field">
+                <label>Description</label>
+                <textarea id="todoDescription" placeholder="Add more details..."></textarea>
+            </div>
 
+            <div class="field-row">
                 <div class="detail-field">
-                    <label>Title</label>
-                    <input type="text" placeholder="What needs to be done?" />
+                    <label>Due Date</label>
+                    <input type="date" id="todoDueDate" required />
                 </div>
-
                 <div class="detail-field">
-                    <label>Description</label>
-                    <textarea placeholder="Add more details..."></textarea>
-                </div>
-
-                <div class="field-row">
-                    <div class="detail-field">
-                        <label>Due Date</label>
-                        <input type="date" />
-                    </div>
-                    <div class="detail-field">
-                        <label>Priority</label>
-                        <select>
-                            <option>🔴 High</option>
-                            <option selected>🟡 Medium</option>
-                            <option>🟢 Low</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="detail-field">
-                    <label>Project</label>
-                    <select>
-                        <option>📥 Inbox</option>
-                        <option selected>💼 Work</option>
-                        <option>🏠 Personal</option>
-                        <option>🚀 Side Project</option>
+                    <label>Priority</label>
+                    <select id="todoPriority">
+                        <option value="high">🔴 High</option>
+                        <option value="medium" selected>🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
                     </select>
                 </div>
-
-                <div class="detail-field">
-                    <label>Notes</label>
-                    <textarea placeholder="Any extra notes..." style="min-height:52px;"></textarea>
-                </div>
-
-                <div class="detail-field">
-                    <label>Checklist</label>
-                    <div id="checklist">
-                        <div class="checklist-item">
-                            <div class="mini-check"></div>
-                            <span>Step one...</span>
-                        </div>
-                    </div>
-                    <span class="add-checklist-btn">＋ Add item</span>
-                </div>
-
             </div>
 
-            <div class="dialog-footer">
-                <button class="btn-cancel" id="cancelDialog">Cancel</button>
-                <button class="btn-save">Add Todo</button>
+            <div class="detail-field">
+                <label>Notes</label>
+                <textarea id="todoNotes" placeholder="Any extra notes..." style="min-height:52px;"></textarea>
             </div>
-
         </div>
-    </div>
+
+        <div class="dialog-footer">
+            <button class="btn-cancel" id="cancelDialog">Cancel</button>
+            <button class="btn-save" id="saveTodo">Add Todo</button>
+        </div>
+
+    </dialog>
 
 
 
